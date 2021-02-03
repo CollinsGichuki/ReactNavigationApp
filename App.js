@@ -20,8 +20,27 @@ const Screen1 = ({ navigation, route }) => (
 const Screen2 = ({ navigation, route }) => (
   <View style={styles.screen}>
     <Text style={styles.title}>Screen 2</Text>
+
+    <Button 
+    title="Go to Screen 3"
+    m-15
+    onPress={() => {
+      navigation.push('Screen3')
+    }}/>
+
     <Button 
     title="Go back"
+    onPress={() => {
+      navigation.pop()
+    }}/>
+  </View>
+)
+
+const Screen3 = ({ navigation, route }) => (
+  <View style={styles.screen}>
+    <Text style={styles.title}>Screen 3</Text>
+    <Button
+    title="Go to Screen2"
     onPress={() => {
       navigation.pop()
     }}/>
@@ -34,6 +53,7 @@ export default function App() {
       <Root.Navigator>
         <Root.Screen name="Screen1" component={Screen1} />
         <Root.Screen name="Screen2" component={Screen2}/>
+        <Root.Screen name="Screen3" component={Screen3}/>
       </Root.Navigator>
     </NavigationContainer>
   );
